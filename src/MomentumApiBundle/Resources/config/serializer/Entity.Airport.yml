@@ -1,0 +1,13 @@
+MomentumApiBundle\Entity\Airport:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+    name:
+      expose: true
+    city:
+      expose: true
+    country:
+      expose: true
+    gka:
+      expose: true

@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
- * Rest controller for notes
+ * Rest controller for airports
  *
  * @package AppBundle\Controller
  * @author Cristian Nistor <cfnistor@gmail.com>
@@ -23,7 +23,7 @@ class AirportController extends FOSRestController
 {
 
     /**
-     * List all airport.
+     * Alphabetical listing of all airports.
      *
      * @ApiDoc(
      *   resource = true,

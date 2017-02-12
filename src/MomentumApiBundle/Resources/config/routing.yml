@@ -1,0 +1,7 @@
+momentum_api_homepage:
+    path:     /
+    defaults: { _controller: MomentumApiBundle:Default:index }
+
+airports:
+    type:     rest
+    resource: MomentumApiBundle\Controller\AirportController

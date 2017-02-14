@@ -1,0 +1,21 @@
+{% extends "MomentumApiBundle::layout.html.twig" %}
+
+{% block title "Trip - Flights" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">{{ 'flight.new.headline'|trans({}, 'AppBundle') }}</h1>
+
+    {%  if (form is defined) %}
+        <form action="{{ url('post_flights') }}" method="POST" {{ form_enctype(form) }}>
+
+            {{ form_widget(form) }}
+
+            <input type="submit" value="{% trans from 'AppBundle' %}flight.new.submit{% endtrans %}">
+        </form>
+    {% endif %}
+
+{% endblock %}
+
+{% set code = code(_self) %}

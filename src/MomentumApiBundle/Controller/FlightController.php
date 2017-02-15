@@ -39,7 +39,7 @@ class FlightController extends FOSRestController
      *
      * @param int $id the note id
      *
-     * @return View
+     * @return array
      */
     public function deleteFlightAction($id)
     {
@@ -49,10 +49,18 @@ class FlightController extends FOSRestController
         }
 
         $em = $this->getDoctrine()->getManager();
-        $em->remove($flight);
-        $em->flush();
 
-        return $this->routeRedirectView('get_flights', array(), Response::HTTP_NO_CONTENT);
+	try {
+            $em->remove($flight);
+            $em->flush();
+        } catch (Exception $e) {
+             throw new HttpException(409, "This flight cannot be deleted now, please try again later.");
+             exit;
+        }
+        $message = sprintf('Flight %d has been deleted', $id);
+        
+        return array('message' => $message);
+
     }
 
     /**
@@ -116,7 +124,7 @@ class FlightController extends FOSRestController
             $em->persist($flight);
             $em->flush();
 
-            return $this->routeRedirectView('get_flight', array('id' => $flight->getId()));
+            return array('flight' => $flight);
         }
 
         return array('form' => $form);

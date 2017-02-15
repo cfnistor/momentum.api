@@ -12,6 +12,6 @@ composer install --no-dev --optimize-autoloader
 php app/console doctrine:schema:validate
 php app/console doctrine:schema:create
 
-4. make sure that the server can wright in
+4. make sure that the web server has write permissions on
 document_root/app/cache
 document_root/app/logs
